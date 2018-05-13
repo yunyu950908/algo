@@ -1,0 +1,23 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "算法学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunyu950908/algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yunyu950908/algorithms/issues"
+  },
+  "homepage": "https://github.com/yunyu950908/algorithms#readme",
+  "dependencies": {
+    "mocha": "^5.1.1"
+  }
+}
