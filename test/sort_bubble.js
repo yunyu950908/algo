@@ -1,15 +1,6 @@
 const assert = require('assert');
 
-function genArr() {
-  return Array.from(new Array(100), () => Math.random() * 100 >>> 0);
-}
-
-function swap(a, b, array) {
-  const temp = array[a];
-  array[a] = array[b];
-  array[b] = temp;
-  return null;
-}
+const { swap, testSortFunc } = require('./sort_basic');
 
 function bubbleSrot(array) {
   // 为方便比较，拷贝一份副本
@@ -80,15 +71,6 @@ function bubbleSort3(array) {
     len -= 1;
   }
   return resultArr;
-}
-
-function testSortFunc(sortFn) {
-  for (let i = 0; i < 100; i += 1) {
-    const newArr = genArr();
-    const sortedArr = sortFn(newArr); // 自己的先排，因为自己的函数操作和返回拷贝的副本，原生 sort API 直接变原数组
-    const chromeSort = newArr.sort((a, b) => a - b);
-    assert.deepEqual(sortedArr, chromeSort);
-  }
 }
 
 describe('bubbleSrot(array) 测试, 循环生成 100 组长度为 100，元素为随机 [0, 100) 的整数数组，与Chrome sort 的结果做比较', () => {
