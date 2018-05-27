@@ -63,12 +63,15 @@ class Linked {
   shift() {
     const targetNode = this.head.next;
     if (!targetNode) return null;
+    if (targetNode === this.tail) {
+      this.tail = this.head;
+    } else {
+      this.head.next.prev = this.head;
+    }
     this.head.next = targetNode.next;
-    this.head.next.prev = this.head;
     targetNode.next = null;
     targetNode.prev = null;
     this.size--;
-    if (targetNode === this.tail) this.tail = this.head;
     return targetNode;
   }
 
@@ -94,11 +97,15 @@ class Linked {
   }
 
   display() {
+    const result = new Array(this.size);
+    let count = 0;
     let curNode = this.head;
     while (curNode.next !== null) {
       curNode = curNode.next;
-      console.log(curNode);
+      result[count++] = curNode.element;
     }
+    console.log(result);
+    return result;
   }
 }
 
@@ -119,4 +126,5 @@ class Linked {
 
 module.exports = {
   Linked,
+  Node,
 };
