@@ -57,7 +57,7 @@ class Linked {
     this.tail.next = null;
     tempTail.prev = null;
     this.size--;
-    return tempTail.element;
+    return tempTail;
   }
 
   shift() {
@@ -69,7 +69,7 @@ class Linked {
     targetNode.prev = null;
     this.size--;
     if (targetNode === this.tail) this.tail = this.head;
-    return targetNode.element;
+    return targetNode;
   }
 
   unshift(element) {
