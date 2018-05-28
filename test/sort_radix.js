@@ -1,7 +1,7 @@
 function radixSort(array) {
   const queues = Array.from(new Array(10), () => []);
   const maxLen = Math.max.apply(null, array).toString().length;
-  for (let i = 1; i <= maxLen; i++) {
+  for (let i = 0; i < maxLen; i++) {
     distribute(array, queues, i);
   }
   return array;
@@ -11,9 +11,8 @@ function distribute(array, queues, digit) {
   let count = 0;
   for (let i = 0; i < array.length; i++) {
     const item = array[i];
-    const strItem = item.toString();
-    const digitItem = strItem[strItem.length - digit] || 0;
-    queues[digitItem].push(item);
+    const idx = Math.floor((item / Math.pow(10, digit)) % 10);
+    queues[idx].push(item);
   }
   for (let i = 0; i < queues.length; i++) {
     const queue = queues[i];
