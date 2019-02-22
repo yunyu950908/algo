@@ -8,6 +8,8 @@ def selection_sort(arr):
         [arr[i], arr[min]] = [arr[min], arr[i]]
     return arr
 
+
 if __name__ == "__main__":
-    a = [2, 4, 6, 8, 0, 1, 3, 5, 7, 9]
+    import random
+    a = [random.randint(0, 99) for _ in range(10)]
     print(selection_sort(a))
